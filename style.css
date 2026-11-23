@@ -1,0 +1,51 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f1f4f8;color:#172033;font-family:Arial,sans-serif}
+.topbar{height:64px;background:#063b7a;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:5}
+.topbar div{display:flex;align-items:center;gap:16px}
+.topbar strong{font-size:20px;letter-spacing:1px}
+.topbar span{opacity:.85}
+.app{display:grid;grid-template-columns:350px 1fr;min-height:calc(100vh - 64px)}
+.sidebar{padding:16px;overflow:auto;max-height:calc(100vh - 64px)}
+.panel{background:white;border:1px solid #e1e7ef;border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px #17203308}
+.panel h2{font-size:15px;margin:0 0 9px;color:#063b7a}
+.panel h3{font-size:13px;margin:4px 0 10px;color:#0757b8}
+.panel p,.hint{font-size:12px;line-height:1.5;color:#69758a}
+.hint{margin-top:8px}
+.file-button,button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.file-button{background:#eaf2ff;color:#0757b8;width:100%;margin:5px 0}
+.file-button input{display:none}
+.primary{background:#0757b8;color:white}
+.secondary,#demoBtn,.actions button{background:#edf1f6;color:#27364b}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+input:not([type=file]),select{width:100%;border:1px solid #d8e0ea;border-radius:7px;padding:9px;margin:4px 0 10px;background:white;color:#172033}
+.field-config label{display:block;font-size:11px;font-weight:700;color:#536177}
+.field-config input[type=color]{height:38px;padding:3px}
+.actions{display:grid;gap:7px;margin-top:5px}
+.stats{display:flex;justify-content:space-between;padding:8px 0;margin-bottom:8px;border-bottom:1px solid #edf0f4}
+.workspace{min-width:0;padding:22px;display:flex;flex-direction:column}
+.workspace-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.workspace-head h1{font-size:20px;margin:0 0 4px}
+.workspace-head p{font-size:12px;color:#69758a;margin:0}
+.zoom-control{display:flex;align-items:center;gap:10px}
+.zoom-control button{background:white;border:1px solid #dce3ed;font-size:18px;padding:5px 12px}
+.zoom-control span{font-size:12px;min-width:35px;text-align:center}
+.canvas-scroll{flex:1;overflow:auto;background:#dfe5ed;border-radius:12px;padding:24px;display:flex;justify-content:center;align-items:flex-start}
+.poster{width:868px;height:1228px;position:relative;background:white center/100% 100% no-repeat;box-shadow:0 5px 24px #17203325;flex:none;transform-origin:top center}
+.poster #emptyState{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#7b8798;font-size:20px}
+.overlay-field{position:absolute;min-width:90px;min-height:40px;padding:6px 10px;transform:translate(-50%,-50%);font-size:38px;font-weight:700;color:#111;text-align:center;white-space:nowrap;cursor:move;user-select:none;z-index:2;text-shadow:0 1px 1px #fff8;border:2px dashed transparent}
+.overlay-field[data-field="name"]{width:90%;max-width:90%;box-sizing:border-box;white-space:normal;overflow-wrap:break-word;word-break:normal;line-height:1.05}
+.overlay-field.selected{border-color:#1683ff;background:#1683ff12}
+.preview-footer{font-size:12px;color:#69758a;padding:12px 2px}
+#printArea{display:none}
+@media(max-width:850px){.app{grid-template-columns:1fr}.sidebar{max-height:none}.workspace{min-height:75vh;padding:12px}.topbar{padding:0 12px}.topbar span{font-size:12px}}
+@media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{width:210mm!important;margin:0!important;padding:0!important;background:white!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .topbar,.app{display:none!important}
+  #printArea{display:block!important;width:210mm!important;margin:0!important;padding:0!important}
+  .print-page{width:210mm;height:297mm;position:relative;overflow:hidden;margin:0;padding:0;page-break-after:always;break-after:page;background:white;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .print-page:last-child{page-break-after:auto;break-after:auto}
+  .print-background{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;object-fit:fill!important;z-index:0!important}
+  .print-field{position:absolute;transform:translate(-50%,-50%);line-height:1.05;text-align:center;white-space:nowrap;z-index:1}
+  .print-field[data-field="name"]{width:90%!important;max-width:90%!important;box-sizing:border-box;white-space:normal!important;overflow-wrap:break-word;word-break:normal;height:auto}
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criador de Cartazes em Lote</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>AVENIDA</strong><span>Criador de Cartazes em Lote</span></div>
+    <button id="printBtn" class="primary" disabled>Imprimir / Salvar PDF</button>
+  </header>
+
+  <main class="app">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>1. Layout do cartaz</h2>
+        <p>Importe a imagem de fundo. Ela será mantida como base de todas as páginas.</p>
+        <label class="file-button">Selecionar imagem
+          <input type="file" id="backgroundInput" accept="image/*">
+        </label>
+        <div id="imageInfo" class="hint">Nenhuma imagem selecionada.</div>
+        <p class="hint">Tamanho recomendado: 2.480 × 3.508 px (A4 vertical, 300 DPI).</p>
+      </section>
+
+      <section class="panel">
+        <h2>2. Campos variáveis</h2>
+        <p>Edite cada campo e personalize seu estilo individualmente. Na prévia, selecione e arraste os campos para definir suas posições; elas serão repetidas em todos os cartazes.</p>
+
+        <div class="field-config">
+          <h3>Nome do produto</h3>
+          <label for="nameText">Texto</label>
+          <input id="nameText" value="Nome do produto">
+          <label for="fontSize">Tamanho da fonte (px na arte)</label>
+          <input type="number" id="fontSize" value="110" min="10" max="500">
+          <label for="fontColor">Cor</label>
+          <input type="color" id="fontColor" value="#111111">
+          <label for="fontFamily">Família tipográfica</label>
+          <select id="fontFamily">
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="Impact, sans-serif">Impact</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+              <option value="'Century Gothic', sans-serif">Century Gothic</option>
+              <option value="'Montserrat', sans-serif">Montserrat</option>
+          </select>
+          <label for="weightName">Espessura</label>
+          <select id="weightName"><option value="700">Negrito</option><option value="400">Normal</option><option value="900">Extra negrito</option></select>
+          <label for="alignName">Alinhamento</label>
+          <select id="alignName"><option value="center">Centralizado</option><option value="left">À esquerda</option><option value="right">À direita</option></select>
+        </div>
+
+        <div class="field-config">
+          <h3>Valor</h3>
+          <label for="priceText">Texto</label>
+          <input id="priceText" value="R$ 00,00">
+          <label for="sizePrice">Tamanho da fonte (px na arte)</label>
+          <input type="number" id="sizePrice" value="190" min="10" max="500">
+          <label for="colorPrice">Cor</label>
+          <input type="color" id="colorPrice" value="#d71920">
+          <label for="familyPrice">Família tipográfica</label>
+          <select id="familyPrice">
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="Impact, sans-serif">Impact</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+              <option value="'Century Gothic', sans-serif">Century Gothic</option>
+              <option value="'Montserrat', sans-serif">Montserrat</option>
+            </select>
+          <label for="weightPrice">Espessura</label>
+          <select id="weightPrice"><option value="900">Extra negrito</option><option value="700">Negrito</option><option value="400">Normal</option></select>
+          <label for="alignPrice">Alinhamento</label>
+          <select id="alignPrice"><option value="center">Centralizado</option><option value="left">À esquerda</option><option value="right">À direita</option></select>
+        </div>
+
+        <div class="field-config">
+          <h3>Tipo / quantidade</h3>
+          <label for="typeText">Texto</label>
+          <input id="typeText" value="UNIDADE">
+          <label for="sizeType">Tamanho da fonte (px na arte)</label>
+          <input type="number" id="sizeType" value="85" min="10" max="500">
+          <label for="colorType">Cor</label>
+          <input type="color" id="colorType" value="#111111">
+          <label for="familyType">Família tipográfica</label>
+          <select id="familyType">
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="Impact, sans-serif">Impact</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+              <option value="'Century Gothic', sans-serif">Century Gothic</option>
+              <option value="'Montserrat', sans-serif">Montserrat</option>
+          </select>
+          <label for="weightType">Espessura</label>
+          <select id="weightType"><option value="700">Negrito</option><option value="400">Normal</option><option value="900">Extra negrito</option></select>
+          <label for="alignType">Alinhamento</label>
+          <select id="alignType"><option value="center">Centralizado</option><option value="left">À esquerda</option><option value="right">À direita</option></select>
+        </div>
+
+        <div class="field-config">
+          <h3>Data</h3>
+          <label for="dateText">Texto</label>
+          <input id="dateText" value="DATA">
+          <label for="sizeDate">Tamanho da fonte (px na arte)</label>
+          <input type="number" id="sizeDate" value="70" min="10" max="500">
+          <label for="colorDate">Cor</label>
+          <input type="color" id="colorDate" value="#111111">
+          <label for="familyDate">Família tipográfica</label>
+          <select id="familyDate">
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="Impact, sans-serif">Impact</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+              <option value="'Century Gothic', sans-serif">Century Gothic</option>
+              <option value="'Montserrat', sans-serif">Montserrat</option>
+          </select>
+          <label for="weightDate">Espessura</label>
+          <select id="weightDate"><option value="700">Negrito</option><option value="400">Normal</option><option value="900">Extra negrito</option></select>
+          <label for="alignDate">Alinhamento</label>
+          <select id="alignDate"><option value="center">Centralizado</option><option value="left">À esquerda</option><option value="right">À direita</option></select>
+        </div>
+
+        <div class="actions">
+          <button id="applyStyleBtn">Aplicar estilo ao campo selecionado</button>
+          <button id="resetPositionsBtn" class="secondary">Redefinir posições</button>
+        </div>
+        <div id="selectedField" class="hint">Campo selecionado: Nome</div>
+      </section>
+
+      <section class="panel">
+        <h2>3. Importar produtos (CSV)</h2>
+        <p>Use uma linha por produto. Cabeçalhos aceitos: <code>nome,valor,tipoquantidade,data</code>.</p>
+        <label class="file-button">Importar arquivo CSV
+          <input type="file" id="csvInput" accept=".csv,text/csv">
+        </label>
+        <div id="csvInfo" class="hint">Nenhum CSV importado.</div>
+        <button id="demoBtn" class="secondary">Carregar exemplo</button>
+      </section>
+
+      <section class="panel">
+        <h2>4. Gerar cartazes</h2>
+        <div class="stats"><span>Produtos</span><strong id="productCount">0</strong></div>
+        <button id="generateBtn" class="primary" disabled>Gerar páginas</button>
+        <div class="hint">Cada linha válida do CSV gera uma página com o mesmo fundo e os campos nas mesmas posições.</div>
+        <div id="generationInfo" class="hint"></div>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><h1>Prévia do cartaz</h1><p>Selecione um campo e arraste para posicioná-lo.</p></div>
+        <div class="zoom-control"><button id="zoomOut">−</button><span id="zoomLabel">35%</span><button id="zoomIn">+</button></div>
+      </div>
+      <div class="canvas-scroll">
+        <div id="poster" class="poster">
+          <div id="emptyState">Importe a imagem do seu cartaz para começar.</div>
+          <div class="overlay-field selected" data-field="name" id="previewName">Nome do produto</div>
+          <div class="overlay-field" data-field="price" id="previewPrice">R$ 00,00</div>
+          <div class="overlay-field" data-field="type" id="previewType">UNIDADE</div>
+          <div class="overlay-field" data-field="date" id="previewDate">DATA</div>
+        </div>
+      </div>
+      <div class="preview-footer">As posições e estilos configurados aqui serão aplicados igualmente a todos os produtos.</div>
+    </section>
+  </main>
+  <section id="printArea" aria-hidden="true"></section>
+  <script src="app.js"></script>
+</body>
+</html>
